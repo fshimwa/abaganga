@@ -1,0 +1,49 @@
+<!-- Navigation -->
+<header class="app-header navbar">
+    <button class="navbar-toggler visible-xs" type="button" data-toggle="collapse" data-target="#menunav"
+            aria-controls="menunav"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="icon-list"></i></span>
+    </button>
+    <a class="navbar-brand" href="#"></a>
+    <div class="collapse navbar-collapse" id="menunav">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <img class="img-responsive" alt="rwandapaeds" src="/static/images/rpa_icon_resize.png"
+                     class="img-avatar">
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#"></a>
+            </li>
+            {% if current_user.admin %}
+            <li class="nav-item px-1">
+                <a class="nav-link" href="{{ url_for('profile.list_all') }}">List All Members</a>
+            </li>
+            {% endif %}
+        </ul>
+        <ul class="nav navbar-nav ml-auto navbar-right">
+            {% if current_user.confirmed and current_user.is_authenticated() %}
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{{ current_user.email }}
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu ">
+                        <li class="nav-item hidden-md-down"><a class="nav-link"
+                                                               href="{{ url_for('profile.display') }}">Profile</a></li>
+                        <li class="nav-item hidden-md-down"><a class="nav-link" href="{{ url_for('user.profile') }}">Change
+                            Password</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="nav-item hidden-md-down"><a class="nav-link" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            {% elif current_user.is_authenticated() %}
+                <li><a href="{{ url_for('user.unconfirmed') }}">Confirm</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</header>
