@@ -34,7 +34,6 @@ mail = Mail(app)
 toolbar = DebugToolbarExtension(app)
 db = SQLAlchemy(app)
 
-
 ####################
 #### blueprints ####
 ####################
@@ -42,9 +41,12 @@ db = SQLAlchemy(app)
 from project.main.views import main_blueprint
 from project.user.views import user_blueprint
 from project.profile.views import profile_blueprint
+from project.payment.views import payment_blueprint
+
 app.register_blueprint(main_blueprint)
 app.register_blueprint(user_blueprint)
 app.register_blueprint(profile_blueprint)
+app.register_blueprint(payment_blueprint)
 
 ####################
 #### flask-login ####

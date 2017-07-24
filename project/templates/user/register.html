@@ -6,34 +6,129 @@
         <br>
         <form class="form-signin" role="form" method="post" action="">
             {{ form.csrf_token }}
-            {{ form.email(placeholder="email") }}
-            <span class="error">
-      {% if form.email.errors %}
-          {% for error in form.email.errors %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.title.label }}</label>{{ form.title(placeholder="Title", class="form-control") }}
+            </div>
+
+            {% if form.title.errors %}
+                <span class="alert alert-danger">
+                  {% for error in form.title.errors %}
+                      {{ error }}
+                  {% endfor %}
+          </span>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.firstName.label }}</label>
+                {{ form.firstName(placeholder="First Name") }}
+            </div>
+
+            {% if form.firstName.errors %}
+                <span class="alert alert-danger">
+          {% for error in form.firstName.errors %}
               {{ error }}
           {% endfor %}
-      {% endif %}
-    </span>
-            </p>
-            <p>
-                {{ form.password(placeholder="password") }}
-                <span class="error">
-      {% if form.password.errors %}
+          </span>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.lastName.label }}</label>{{ form.lastName(placeholder="last Name") }}
+            </div>
+
+            {% if form.lastName.errors %}
+                <span class="alert alert-danger">
+          {% for error in form.lastName.errors %}
+              {{ error }}
+          {% endfor %}
+          </span>
+            {% endif %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.email.label }}</label>
+                {{ form.email(placeholder="email") }}
+            </div>
+            {% if form.firstName.errors %}
+                <span class="alert alert-danger">
+                  {% for error in form.firstName.errors %}
+                      {{ error }}
+                  {% endfor %}
+                  </span>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.gender.label }}</label>{{ form.gender(placeholder="Gender", class="form-control") }}
+            </div>
+            {% if form.gender.errors %}
+                <span class="alert alert-danger">
+          {% for error in form.gender.errors %}
+              {{ error }}
+          {% endfor %}
+          </span>
+            {% endif %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.dateOfBirth.label }}</label>{{ form.dateOfBirth(placeholder="dateOfBirth") }}
+            </div>
+            {% if form.dateOfBirth.errors %}
+                <span class="alert alert-danger">
+          {% for error in form.dateOfBirth.errors %}
+              {{ error }}
+          {% endfor %}
+          </span>
+            {% endif %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.category.label }}</label>{{ form.category(placeholder="Category") }}
+            </div>
+            {% if form.category.errors %}
+                <span class="alert alert-danger">
+          {% for error in form.category.errors %}
+              {{ error }}
+          {% endfor %}
+          </span>
+            {% endif %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.workPlace.label }}</label>{{ form.workPlace(placeholder="workplace") }}
+            </div>
+            {% if form.workPlace.errors %}
+                <span class="alert alert-danger">
+
+          {% for error in form.workPlace.errors %}
+              {{ error }}
+          {% endfor %}
+                      </span>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.country.label }}</label>{{ form.country(placeholder="Country", class="form-control") }}
+            </div>
+            {% if form.country.errors %}
+                <span class="alert alert-danger">
+          {% for error in form.country.errors %}
+              {{ error }}
+          {% endfor %}
+          </span>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.password.label }}</label>{{ form.password(placeholder="password") }}
+            </div>
+            {% if form.password.errors %}
+                <span class="alert alert-danger">
           {% for error in form.password.errors %}
               {{ error }}
           {% endfor %}
-      {% endif %}
-    </span>
-            </p>
-            <p>
-                {{ form.confirm(placeholder="confirm") }}
-                <span class="error">
-      {% if form.confirm.errors %}
+          </span>
+            {% endif %}
+            </span>
+
+            <div class="form-group">
+                <label for="formGroupExampleInput">{{ form.confirm.label }}</label>{{ form.confirm(placeholder="confirm") }}
+            </div>
+            {% if form.confirm.errors %}
+                <span class="alert alert-danger">
           {% for error in form.confirm.errors %}
               {{ error }}
           {% endfor %}
-      {% endif %}
-    </span>
+          </span>
+            {% endif %}
             </p>
             <button class="btn btn-success" type="submit">Register!</button>
             <br><br>

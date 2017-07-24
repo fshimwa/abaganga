@@ -10,22 +10,12 @@
             {% endif %}
             {{ form.csrf_token }}
             <div class="form-group">
-                <label for="formGroupExampleInput">{{ form.firstName.label }}</label>
-                {{ form.firstName(placeholder="First Name") }}
+                <label for="formGroupExampleInput">{{ form.phone.label }}</label>
+                {{ form.phone(placeholder="Phone Number") }}
             </div>
             <span class="error">
-      {% if form.firstName.errors %}
-          {% for error in form.firstName.errors %}
-              {{ error }}
-          {% endfor %}
-      {% endif %}
-    </span>
-            <div class="form-group">
-                <label for="formGroupExampleInput">{{ form.lastName.label }}</label>{{ form.lastName(placeholder="last Name") }}
-            </div>
-            <span class="error">
-      {% if form.lastName.errors %}
-          {% for error in form.lastName.errors %}
+      {% if form.phone.errors %}
+          {% for error in form.phone.errors %}
               {{ error }}
           {% endfor %}
       {% endif %}
@@ -46,46 +36,6 @@
             <span class="error">
       {% if form.profilePic.errors %}
           {% for error in form.profilePic.errors %}
-              {{ error }}
-          {% endfor %}
-      {% endif %}
-    </span>
-            <div class="form-group">
-                <label for="formGroupExampleInput">{{ form.occupation.label }}</label>{{ form.occupation(placeholder="Occupation") }}
-            </div>
-            <span class="error">
-      {% if form.occupation.errors %}
-          {% for error in form.occupation.errors %}
-              {{ error }}
-          {% endfor %}
-      {% endif %}
-    </span>
-            <div class="form-group">
-                <label for="formGroupExampleInput">{{ form.workPlace.label }}</label>{{ form.workPlace(placeholder="workplace") }}
-            </div>
-            <span class="error">
-      {% if form.workPlace.errors %}
-          {% for error in form.workPlace.errors %}
-              {{ error }}
-          {% endfor %}
-      {% endif %}
-    </span>
-            <div class="form-group">
-                <label for="formGroupExampleInput">{{ form.levels.label }}</label>{{ form.levels(placeholder="Level") }}
-            </div>
-            <span class="error">
-      {% if form.levels.errors %}
-          {% for error in form.levels.errors %}
-              {{ error }}
-          {% endfor %}
-      {% endif %}
-    </span>
-            <div class="form-group">
-                <label for="formGroupExampleInput">{{ form.country.label }}</label>{{ form.country(placeholder="Country") }}
-            </div>
-            <span class="error">
-      {% if form.country.errors %}
-          {% for error in form.country.errors %}
               {{ error }}
           {% endfor %}
       {% endif %}

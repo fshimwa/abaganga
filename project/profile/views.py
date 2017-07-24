@@ -36,14 +36,9 @@ def profile_add():
     if form.validate_on_submit():
         profile = Profile(
             user=current_user,
-            firstName=form.firstName.data,
-            lastName=form.lastName.data,
             bio=form.bio.data,
-            profilePic=form.profilePic.data,
-            occupation=form.occupation.data,
-            workPlace=form.workPlace.data,
-            levels=form.levels.data,
-            country=form.country.data,
+            phone=form.phone.data,
+            profile_pic=form.profilePic.data,
             validity=False,
         )
         db.session.add(profile)
@@ -55,11 +50,18 @@ def profile_add():
     return render_template('profile/register.html', form=form)
 
 
-@profile_blueprint.route('/profile_edit/<profile_id>', methods=['GET'])
+@profile_blueprint.route('/profile_edit/<profile_id>', methods=['GET', 'POST'])
 @login_required
 def profile_edit(profile_id):
     profile = Profile.query.filter_by(id=profile_id).first()
     form = ProfileForm(obj=profile)
+    if form.validate_on_submit():
+        profile.bio = form.bio.data,
+        profile.phone = form.phone.data,
+        profile.profile_pic = form.profilePic.data
+        db.session.commit()
+        flash('Your profile has been saved.', 'success')
+        return redirect(url_for("profile.display"))
     return render_template('profile/register.html', form=form)
 
 

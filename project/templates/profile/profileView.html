@@ -9,13 +9,14 @@
             <center>
                 <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R"
                      name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                <h3 class="media-heading">{{ profile.firstName }} {{ profile.lastName }}
-                    <small>{{ profile.country }}</small>
+                <h3 class="media-heading">{{ profile.user.firstName }} {{ profile.user.lastName }}
+                    <small>{{ profile.user.country }}</small>
                 </h3>
                 <span><strong>Details: </strong></span>
-                <span class="label label-warning">{{ profile.occupation }}</span>
-                <span class="label label-info">{{ profile.workPlace }}</span>
-                <span class="label label-info">{{ profile.levels }}</span>
+                <span class="label label-warning">{{ profile.phone }}</span>
+                <span class="label label-warning">{{ profile.user.occupation }}</span>
+                <span class="label label-info">{{ profile.user.workPlace }}</span>
+                <span class="label label-info">{{ profile.user.levels }}</span>
             </center>
             <hr>
             <center>
@@ -24,7 +25,7 @@
                 <br>
             </center>
         </div>
-<h3><a class="btn btn-success" href="{{ url_for('profile.profile_confirm', profile_id=profile.id) }}">Confirm Membership <span class="glyphicon glyphicon-ok"></span></a></h3>
+<h3>{% if not profile.validity %} <a class="btn btn-success" href="{{ url_for('profile.profile_confirm', profile_id=profile.id) }}">Confirm Membership <span class="glyphicon glyphicon-ok"></span></a>{% endif %}</h3>
 <h3><a class="btn btn-danger" href="{{ url_for('profile.profile_delete', profile_id=profile.id) }}">Deactivate Membership <span class="glyphicon glyphicon-remove"></span></a></h3>
     </div>
 
