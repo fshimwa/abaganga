@@ -2,31 +2,31 @@
 
 {% block content %}
     <div id="divContent" class="">
-        <h1 class="text-center">All Members</h1>
+        <h1 class="text-center">All Registered</h1>
         <p>
         </p>
-        <table class="table table-hover">
+        <button id="export">Export</button>
+
+        <table class="table table-hover" id="meeting_registration">
             <thead>
             <tr>
+                <th> Title</th>
                 <th> First Name</th>
                 <th> Last Name</th>
-                <th> Country</th>
-                <th> Phone Number</th>
-                <th> E-mail</th>
-                <th> Membership confirmed</th>
-                <th> View Profile</th>
+                <th> Telephone</th>
+                <th> Occupation</th>
             </tr>
             </thead>
             <tbody>
-            {% for profile in profiles %}
+            {% for registration in registrations %}
                 <tr>
-                    <td> {{ profile.user.firstName }}</td>
-                    <td> {{ profile.user.lastName }}</td>
-                    <td> {{ profile.user.country }}</td>
-                    <td> {{ profile.phone }}</td>
-                    <td> {{ profile.user.email }}</td>
-                    <td> {{ profile.validity }}</td>
-                    <td><a href="{{ url_for('profile.profile_view', profile_id=profile.id) }}"><span
+                    <td> {{ registration.title }}</td>
+                    <td> {{ registration.firstName }}</td>
+                    <td> {{ registration.lastName }}</td>
+                    <td> {{ registration.telephone }}</td>
+                    <td> {{ registration.occupation }}</td>
+                    <td> {{ registration.validity }}</td>
+                    <td><a href="{{ url_for('registration.registration_view', registration_id=registration.id) }}"><span
                             class="glyphicon glyphicon-eye-open"></span></a></td>
                 </tr>
             {% endfor %}

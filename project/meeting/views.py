@@ -73,10 +73,7 @@ def display():
     return render_template('registration/after_saving.html')
 
 
-@registration_blueprint.route('/list', methods=['GET'])
-@login_required
-@check_confirmed
-@check_is_admin
+@registration_blueprint.route('/list_registration', methods=['GET'])
 def list_all():
     registrations = Registration.query.all()
     return render_template('registration/list.html', registrations=registrations)
